@@ -24,6 +24,16 @@ class App extends Component {
     this.setState({blogs})
   }
 
+  handledeletedBlog = id => {
+    // create a copy of the existing blogs array
+    const index = this.state.blogs.findIndex(blog => blog._id === id);
+    const blogs = [...this.state.blogs];
+    blogs.splice(index, 1);
+    this.setState({
+      blogs: blogs
+    });
+  };
+
   render() {
     const {blogs}= this.state
     return (
@@ -50,6 +60,7 @@ class App extends Component {
                <Listing 
                 blogs={blogs}
                 handleBlogs={this.handleBlogs}
+                handledeletedBlog={this.handledeletedBlog}
                 />
             </div>
           </Content>
