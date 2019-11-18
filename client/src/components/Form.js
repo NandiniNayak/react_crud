@@ -6,11 +6,14 @@ import axios from "axios";
 const { TextArea } = Input;
 
 class Form extends Component{
-    state = {
-        title: "",
-        description: ""
-    }
+    constructor(props){
+        super(props)
+        this.state = {
+            title: "",
+            description: ""
+        }
 
+    }
    onChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -27,6 +30,8 @@ class Form extends Component{
         })
         .then((response) => {
             console.log(response)
+            // call the function passed by the parent to take a local copy of the blog
+            this.props.handleNewBlog(response.data)
         })
         .catch(err =>  console.log(err))
         // make a post request to the server
