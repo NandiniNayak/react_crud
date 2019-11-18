@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("BACKEND SERVER")
   console.log(req.body.title);
   // console.log(req.user.id);
   // save the data to db
