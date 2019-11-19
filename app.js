@@ -59,9 +59,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("HOME");
-});
+// app.get("/", (req, res) => {
+//   res.send("HOME");
+// });
 
 // use auth Routes : anything that routes to /auth goes to auth.js
 app.use("/auth", auth);
